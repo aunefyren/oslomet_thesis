@@ -1,0 +1,50 @@
+search;category
+Arbeiderpartiet;Party
+(@Hoyre OR #Høyre);Party
+Senterpartiet;Party
+ (Fremskrittspartiet OR frp_no);Party
+(Sosialistisk Venstreparti OR Svparti);Party
+(@Raudt OR #Rødt);Party
+(@Venstre OR #Venstre);Party
+(Miljøpartiet De Grønne OR #MDG);Party
+((Kristelig Folkeparti OR #KRF) OR KrFNorge);Party
+Demokratene i Norge;Party
+Pensjonistpartiet;Party
+Partiet De Kristne;Party
+(Industri og Næringspartiet OR Næringspartiet);Party
+Partiet Sentrum;Party
+Helsepartiet;Party
+Pasientfokus;Party
+Liberalistene;Party
+(Folkeaksjonen OR Nei til mer bompenger);Party
+Piratpartiet;Party
+Norges Kommunistiske Parti;Party
+Feministisk Initiativ;Party
+Kystpartiet;Party
+Generasjonspartiet;Party
+Redd Naturen;Party
+Jonas Gahr Støre;Party leader
+Erna Solberg;Party leader
+(Trygve Slagsvold Vedum OR Trygve Vedum);Party leader
+Sylvi Listhaug;Party leader
+Bjørnar Moxnes;Party leader
+Guri Melby;Party leader
+(Une Aina Bastholm OR Une Bastholm);Party leader
+(Kjell Ingolf Ropstad OR Kjell Ropstad);Party leader
+Irene Ojala;Party leader
+(politikk OR politisk);Term
+forsvarspolitikk;Term
+innvandring;Term
+(abortdebatt OR abortpolitikk);Term
+(klimapolitikk OR klimadebatt);Term
+skolepolitikk ;Term
+velferd;Term
+distriktspolitikk ;Term
+(EU-medlemskap OR (EU AND medlem));Term
+((politisk OR politikk) AND debatt);Term
+rusreform;Term
+#NorwayElection;Hashtag
+#valg2021;Hashtag
+#stortingsvalget2021;Hashtag
+#stemnytt;Hashtag
+#stortingsvalget;Hashtag
