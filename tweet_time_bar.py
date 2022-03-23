@@ -13,15 +13,16 @@ to_zone = tz.gettz('Europe/Oslo')
 with open('tweets.json', encoding='utf-8') as file:
     tweets = json.load(file)
     for i, row in enumerate(tweets):
-        # Create Datetime object using the syntax Twitter uses, set timezone to UTC
-        created_at = datetime.strptime(tweets[i]['created_at'], "%Y-%m-%d %H:%M:%S %Z")
-        created_at = created_at.replace(tzinfo=from_zone)
+        if not tweets[i]['retweet']:
+            # Create Datetime object using the syntax Twitter uses, set timezone to UTC
+            created_at = datetime.strptime(tweets[i]['created_at'], "%Y-%m-%d %H:%M:%S %Z")
+            created_at = created_at.replace(tzinfo=from_zone)
 
-        # Convert to GMT+1
-        created_at = created_at.astimezone(to_zone)
+            # Convert to GMT+1
+            created_at = created_at.astimezone(to_zone)
 
-        # Add one Tweet to the related hour
-        tweet_hours[int(created_at.hour)] = tweet_hours[int(created_at.hour)] + 1
+            # Add one Tweet to the related hour
+            tweet_hours[int(created_at.hour)] = tweet_hours[int(created_at.hour)] + 1
 
 
 # Create figure size

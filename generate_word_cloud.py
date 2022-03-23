@@ -42,16 +42,17 @@ for filename in os.listdir(directory):
 with open('tweets.json', encoding='utf-8') as file:
     tweets = json.load(file)
     for i, row in enumerate(tweets):
-        user_id = tweets[i]['user_id']
+        if not tweets[i]['retweet']:
+            user_id = tweets[i]['user_id']
 
-        # split the value
-        tokens = val.split()
+            # split the value
+            tokens = val.split()
 
-        # Converts each token into lowercase
-        for i in range(len(tokens)):
-            tokens[i] = tokens[i].lower()
-        
-        comment_words += " ".join(tokens)+" "
+            # Converts each token into lowercase
+            for i in range(len(tokens)):
+                tokens[i] = tokens[i].lower()
+            
+            comment_words += " ".join(tokens)+" "
 
 
 # Create wordcloud, 2000x2000, grey background color, no collocations, none of the stopwords
