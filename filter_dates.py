@@ -3,6 +3,7 @@ import json
 new_array = []
 count = 0
 
+# Count Tweets containing '2021' and save them to a new array
 with open('tweets.json', encoding='utf-8') as file:
     data = json.load(file)
     for i, row in enumerate(data):
@@ -14,6 +15,6 @@ with open('tweets.json', encoding='utf-8') as file:
 
 print(count)
 
-# and write everything back
+# Write the new array back to the orginal file
 with open('tweets.json', 'w', encoding="utf8") as file:
     json.dump(new_array, file)

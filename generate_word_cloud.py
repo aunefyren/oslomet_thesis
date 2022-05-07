@@ -8,11 +8,14 @@ import numpy as np
 from PIL import Image
 from os import path
 import os
+from datetime import date
 
 # Define variables
 comment_words = ''
 stopwords = set(STOPWORDS)
 directory = 'words'
+last_six_weeks = True
+election_date = date.fromisoformat('2021-09-13')
 
 # Import PNG of Norwegian flag for mask and coloring
 d = path.dirname(__file__) if "__file__" in locals() else os.getcwd()
@@ -43,10 +46,24 @@ with open('tweets.json', encoding='utf-8') as file:
     tweets = json.load(file)
     for i, row in enumerate(tweets):
         if not tweets[i]['retweet']:
+            
+            if last_six_weeks:
+                split_tweet_time = tweets[i]['created_at'].split()
+                tweet_time = date.fromisoformat(split_tweet_time[0])
+                duration = election_date - tweet_time
+                duration_in_s = duration.total_seconds()
+                days = duration.days
+                if days > 42:
+                    print("Skipped date: " + tweets[i]['created_at'])
+                    continue
+                else:
+                    print("Didn't skip date: " + tweets[i]['created_at'])
+
+
             user_id = tweets[i]['user_id']
 
             # split the value
-            tokens = val.split()
+            tokens = tweets[i]['tweet'].split()
 
             # Converts each token into lowercase
             for i in range(len(tokens)):

@@ -1,1 +1,1 @@
-Files and scripts used to proccess Tweets
+These are the scripts and files utilized in my master thesis.

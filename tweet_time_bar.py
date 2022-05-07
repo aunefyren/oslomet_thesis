@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 from datetime import datetime
 from dateutil import tz
+from datetime import date
 import pytz
 import json
 
@@ -8,22 +9,41 @@ hours = ['00:00+', '01:00+', '02:00+', '03:00+', '04:00+', '05:00+', '06:00+', '
 tweet_hours = [0] * 24
 from_zone = tz.gettz('UTC')
 to_zone = tz.gettz('Europe/Oslo')
+last_six_weeks = True
+election_date = date.fromisoformat('2021-09-13')
 
 # Generate variables with Tweet-time found in Tweets within tweets.json
 with open('tweets.json', encoding='utf-8') as file:
     tweets = json.load(file)
     for i, row in enumerate(tweets):
         if not tweets[i]['retweet']:
+
+            # If enabled, skip Tweets not made within six weeks of election day
+            if last_six_weeks:
+                split_tweet_time = tweets[i]['created_at'].split()
+                tweet_time = date.fromisoformat(split_tweet_time[0])
+                duration = election_date - tweet_time
+                duration_in_s = duration.total_seconds()
+                days = duration.days
+                if days > 42:
+                    print("Skipped date: " + tweets[i]['created_at'])
+                    continue
+                else:
+                    print("Didn't skip date: " + tweets[i]['created_at'])
+
+
             # Create Datetime object using the syntax Twitter uses, set timezone to UTC
             created_at = datetime.strptime(tweets[i]['created_at'], "%Y-%m-%d %H:%M:%S %Z")
             created_at = created_at.replace(tzinfo=from_zone)
 
             # Convert to GMT+1
             created_at = created_at.astimezone(to_zone)
-
+            
             # Add one Tweet to the related hour
             tweet_hours[int(created_at.hour)] = tweet_hours[int(created_at.hour)] + 1
 
+
+print(tweet_hours)
 
 # Create figure size
 fig = plt.figure(figsize = (25, 5))

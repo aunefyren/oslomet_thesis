@@ -7,12 +7,13 @@ from urllib.parse import urlparse
 
 data = {}
 
-# Generate variables with Tweet-time found in Tweets within tweets.json
+# Iterate through each Tweet in data-set
 with open('tweets.json', encoding='utf-8') as file:
     tweets = json.load(file)
     for i, row in enumerate(tweets):
-        # Create Datetime object using the syntax Twitter uses, set timezone to UTC
+        # Check if retweet
         if not tweets[i]['retweet']:
+            # Find each URL, clean it, and save it with occurence
             urls = tweets[i]['urls']
             for url in urls:
                 domain = urlparse(str(url)).netloc
@@ -24,6 +25,7 @@ with open('tweets.json', encoding='utf-8') as file:
                     data[domain] = data[domain] + 1
 
 
+# Sort dict and limit to top 25
 while len(data) > 25:
     key_min = min(data.keys(), key=(lambda k: data[k]))
     data.pop(key_min)

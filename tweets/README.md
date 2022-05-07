@@ -1,1 +1,1 @@
-This file contains JSON data with Tweets to big to commit
+This file contains JSON results from ```download_tweets.py```.

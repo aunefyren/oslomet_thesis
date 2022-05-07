@@ -2,7 +2,7 @@ search;category
 Arbeiderpartiet;Party
 (@Hoyre OR #Høyre);Party
 Senterpartiet;Party
- (Fremskrittspartiet OR frp_no);Party
+(Fremskrittspartiet OR frp_no);Party
 (Sosialistisk Venstreparti OR Svparti);Party
 (@Raudt OR #Rødt);Party
 (@Venstre OR #Venstre);Party

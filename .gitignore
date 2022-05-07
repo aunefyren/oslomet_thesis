@@ -1,1 +1,6 @@
-*.json
+/botometer/*
+/compared_tweets/*
+/tweets/*
+/tweets.json
+/tweets_sample.json
+/tweets_sample_small.json
