@@ -1,0 +1,1 @@
+This folder is populated by results from ```tweet_plagiarism.py```.

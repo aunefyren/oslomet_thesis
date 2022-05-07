@@ -1,0 +1,1 @@
+This folder is populated by JSON files created by ```tweet_author_botometer.py```.
