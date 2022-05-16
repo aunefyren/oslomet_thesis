@@ -1,5 +1,5 @@
 # Analyzing automated activity and social deception on Twitter during the 2021 Norwegian election
-These are the scripts and files utilized in my master thesis.
+These are the scripts and files utilized in my master thesis. The data set is not included, but can be recreated using the code.
 
 ## Explainations:
 
